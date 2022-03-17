@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>Notes for LNA (RF circuit)</title>
+    <link href="/2021/12/16/Notes-for-LNA-RF-circuit/"/>
+    <url>/2021/12/16/Notes-for-LNA-RF-circuit/</url>
+    
+    <content type="html"><![CDATA[<div align="center"><font size="6"><b>Notes for Low Noise Amplifier</b></font></div><h2 id="Several-Concerns-about-LNA"><a href="#Several-Concerns-about-LNA" class="headerlink" title="Several Concerns about LNA"></a>Several Concerns about LNA</h2><p>$\qquad$In traditional transceiver architecture, LNAs are normally located in front of mixer of the receiver (RX) , while amplifying the signal processed by RX antenna and BPF.  As the first active stage in RX, LNA dominates the noise figure (NF) of the overall receiving architecture. Therefore the NF and capability in amplifying of LNAs have garnered considerable industrial attention to meet the requirement of circuit design.</p><p>$\qquad$1)  Noise Figure: </p><p>Last Modified: 2021.12.16 </p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Courses</category>
+      
+      <category>Radio Frequency Integrated Circuit</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>RF Circuit</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Outing on Qingming Festival</title>
+    <link href="/2021/04/04/Life-qingming/"/>
+    <url>/2021/04/04/Life-qingming/</url>
+    
+    <content type="html"><![CDATA[<p><img src="https://tvax1.sinaimg.cn/large/0076qFCngy1gp8ur9ttsvj335s2dcb2b.jpg" alt="ShiJi Park camping"></p><hr><p><img src="https://tva4.sinaimg.cn/large/0076qFCngy1gp8us7b33qj335s2dc1kz.jpg" alt="ShiJi Park camping"></p><hr><p><img src="https://tvax3.sinaimg.cn/large/0076qFCngy1gp8uv5g4mvj335s2dckjn.jpg" alt="ShiJi park Camping"></p><hr><p><img src="https://tvax3.sinaimg.cn/large/0076qFCngy1gp8utwu3jbj335s2dcnpd.jpg" alt="ShiJi lake"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Life</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Life</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>CMOS Logic Transconductance and Gain</title>
+    <link href="/2021/03/10/how/"/>
+    <url>/2021/03/10/how/</url>
+    
+    <content type="html"><![CDATA[<div align="center"><font size="10"><b>Transconductance</b></font></div><p><em>This note is based on CMOS technology.  All the equations are based on n-channel MOS</em>.</p><h1 id="I-V-Characteristic-of-MOSFET"><a href="#I-V-Characteristic-of-MOSFET" class="headerlink" title="I-V Characteristic of MOSFET"></a>I-V Characteristic of MOSFET</h1><p>$~~$A Metal-Oxide-Semiconductor field effect transistor has 3 regions that it can works in.</p><ol><li><p><strong>Cut off region (Sub-threshold region):</strong> In Sub-threshold region, there are still some small currents between Drain and Source, whose saturated value has nothing to do with the Gate-Source voltage.</p><p>$$I_{DS}=\frac{W}{L}I_t\exp(\frac{V_{GS}-V_{TH}}{nV_{TH}})[1-\exp(-\frac{V_{DS}}{V_{TH}})]$$ </p><p><em>The $I_t$ relates to diffusion constant, concentration of electrons in P doped region, and anbient temperature.</em> </p></li><li><p><strong>Triode Region:</strong> In this region, $V_{DS} &lt; V_{GS}-V_{TH}$, which means that there is no pinch off in the channel of the device. The I-V equation comes as follow:</p><p> $$I_{ds}=\frac{1}{2}\mu_{n}C_{ox}(\frac{W}{L})[2(V_{GS}-V_{TH})V_{DS}-V_{DS}^2]$$</p></li><li><p><strong>Saturation region:</strong> Due to the pinch off in the channel, the current can not increase infinitely as the Gate voltage increases. Once $V_{DS} = V_{GS}-V_{TH}$, the channel will pinch off. In another word, there will appear a small depletion region nearby the Drain.</p><p> $$I_{ds}=\frac{1}{2}\mu_{n}C_{ox}(\frac{W}{L})(V_{GS}-V_{TH})^2$$</p><p>$~~$Nevertheless, if we take some small size factors into account, the saturation current will change to:</p><p> $$I_{ds}=\frac{1}{2}\mu_{n}C_{ox}(\frac{W}{L_{eff}})(V_{GS}-V_{TH})^2(1+\lambda V_{DS})$$</p></li></ol><h1 id="Transconductance-of-different-types-MOS-amplifier-circuits"><a href="#Transconductance-of-different-types-MOS-amplifier-circuits" class="headerlink" title="Transconductance of different types MOS amplifier circuits"></a>Transconductance of different types MOS amplifier circuits</h1><p>$~~$In DC (Directional Current) analysis, transconductance has been defined as $g_m=\frac{\partial I_{DS}}{\partial V_{GS}}$, and in most of time, we analysis a FET in its saturation region. Thus for n-MOS, the transconductance can be derived as:</p><p>$$g_m=\mu_{n}C_{ox}(\frac{W}{L})(V_{GS}-V_{TH})(1+\lambda V_{DS})$$</p><p>or in form of (ignore the channel length modulation of the device):</p><p>$$g_m=\mu_{n}C_{ox}(\frac{W}{L})(V_{GS}-V_{TH})=\sqrt{2\mu_{n}C_{ox}(\frac{W}{L})I_{DS}}$$</p><p>$~~$When we analysis small signal model of a MOS transconductance at a certain bias $V_{GS0}$, we can finally derive the relation: $i_d=g_mv_i$. </p><p>$~~$This is where the difference between  large signal gain and small signal gain comes from.</p><h3 id="MOS-small-signal-models"><a href="#MOS-small-signal-models" class="headerlink" title="MOS small signal models"></a>MOS small signal models</h3><p>$~~$Different non-ideal factors such as body effect and channel length modulation make small signal models look different. In some circumstances, we do not need to consider all the non-ideal factors, and we just change the small signal to a simpler one. Here comes the models consider different factors:</p><p><img src="https://tvax4.sinaimg.cn/large/0076qFCnly1gpeo0ai1ddj30ym0kk76e.jpg" alt="Ideal model without any output resistance"></p><p><img src="https://tva4.sinaimg.cn/large/0076qFCnly1gpeo5moq9ej31c40mvq6d.jpg" alt="Small signal model considers channel length modulation"></p><p><img src="https://tva4.sinaimg.cn/large/0076qFCnly1gpeo7o4kscj31ib0szn1k.jpg" alt="Small signal model considers the output resistance ro"></p><p><img src="https://tvax1.sinaimg.cn/large/0076qFCnly1gpeococbbpj31fy0nd0x0.jpg" alt="Small signal model considers the output resistance and body effect"></p><p>2021.3</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Courses</category>
+      
+      <category>Analog Integrated Circuit</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Analog</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Digital Integrated Circuit Final Exam Design</title>
+    <link href="/2020/05/01/Digital-Integrated-Circuit-Final-Exam-Design/"/>
+    <url>/2020/05/01/Digital-Integrated-Circuit-Final-Exam-Design/</url>
+    
+    <content type="html"><![CDATA[<p><img src="https://tva1.sinaimg.cn/large/0076qFCngy1gp45pewjdbj319y1sz795.jpg" alt="EE113_Final_Answer_Zhoujm_页面_1"></p><hr><p><img src="https://tvax4.sinaimg.cn/large/0076qFCngy1gp45pr7x1mj319y1szjuy.jpg" alt="EE113_Final_Answer_Zhoujm_页面_2"></p><hr><p><img src="https://tvax4.sinaimg.cn/large/0076qFCngy1gp45q104vhj319y1szgp2.jpg" alt="EE113_Final_Answer_Zhoujm_页面_3"></p><hr><p><img src="https://tva3.sinaimg.cn/large/0076qFCngy1gp45q7z428j319y1szq5k.jpg" alt="EE113_Final_Answer_Zhoujm_页面_4"></p><hr><p><img src="https://tvax4.sinaimg.cn/large/0076qFCngy1gp45raxo1xj319y1szwgy.jpg" alt="EE113_Final_Answer_Zhoujm_页面_5"></p><hr><p><img src="https://tvax4.sinaimg.cn/large/0076qFCngy1gp45rhu5baj319y1sz74y.jpg" alt="EE113_Final_Answer_Zhoujm_页面_6"></p><hr><p><img src="https://tvax3.sinaimg.cn/large/0076qFCngy1gp45rprhz7j319y1szqao.jpg" alt="EE113_Final_Answer_Zhoujm_页面_7"></p><hr><p><img src="https://tvax1.sinaimg.cn/large/0076qFCngy1gp45rux2wrj319y1szwm0.jpg" alt="EE113_Final_Answer_Zhoujm_页面_8"></p><p><em>If you think this work is helpful to you, ETH donation is expected, and the QRcode is on the About page</em></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Courses</category>
+      
+      <category>Digital Integrated Circuit</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Digital Integrated Circuit</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  
+</search>
