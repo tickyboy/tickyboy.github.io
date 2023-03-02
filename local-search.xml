@@ -4,11 +4,11 @@
   
   
   <entry>
-    <title>Notes for LNA (RF circuit)</title>
-    <link href="/2021/12/16/Notes-for-LNA-RF-circuit/"/>
-    <url>/2021/12/16/Notes-for-LNA-RF-circuit/</url>
+    <title>Huawei HIC Doherty PA Design</title>
+    <link href="/2022/04/16/Huawei_PA/"/>
+    <url>/2022/04/16/Huawei_PA/</url>
     
-    <content type="html"><![CDATA[<div align="center"><font size="6"><b>Notes for Low Noise Amplifier</b></font></div><h2 id="Several-Concerns-about-LNA"><a href="#Several-Concerns-about-LNA" class="headerlink" title="Several Concerns about LNA"></a>Several Concerns about LNA</h2><p>$\qquad$In traditional transceiver architecture, LNAs are normally located in front of mixer of the receiver (RX) , while amplifying the signal processed by RX antenna and BPF.  As the first active stage in RX, LNA dominates the noise figure (NF) of the overall receiving architecture. Therefore the NF and capability in amplifying of LNAs have garnered considerable industrial attention to meet the requirement of circuit design.</p><p>$\qquad$1)  Noise Figure: </p><p>Last Modified: 2021.12.16 </p>]]></content>
+    <content type="html"><![CDATA[<div align="center"><font size="6"><b>Huawei HIC Doherty PA Design</b></font></div><p><img src="https://s2.loli.net/2023/03/02/ia84jyXVJufzIPA.jpg" alt="HIC_Page1.jpg"></p><p><img src="https://s2.loli.net/2023/03/02/l6PLekdC9NusUqE.jpg" alt="HIC_Page2.jpg"></p><p><img src="https://s2.loli.net/2023/03/02/l6PLekdC9NusUqE.jpg" alt="HIC_Page2.jpg"></p><p><img src="https://s2.loli.net/2023/03/02/UNeplDfy5oMG46z.jpg" alt="HIC_Page4.jpg"></p><p><img src="https://s2.loli.net/2023/03/02/YnA6xZ8jPcXmzgN.jpg" alt="HIC_Page5.jpg"></p><p><img src="https://s2.loli.net/2023/03/02/UqWkVO2I9mlJRf3.jpg" alt="HIC_Page6.jpg"></p><p><img src="https://s2.loli.net/2023/03/02/17Lv9UghzEew8W5.jpg" alt="HIC_Page7.jpg"></p><p><img src="https://s2.loli.net/2023/03/02/QgneW8RBJGZ7siD.jpg" alt="HIC_Page8.jpg"></p>]]></content>
     
     
     <categories>
