@@ -18,7 +18,7 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-  <title>CMOS Logic Transconductance and Gain - JM Zhou&#39;s Blog</title>
+  <title>LNA NF auto test solution - JM Zhou&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -174,12 +174,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/img/exam_top_img.jpg') no-repeat center center;
+         style="background: url('/img/life.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="CMOS Logic Transconductance and Gain">
+            <span class="h2" id="subtitle" title="LNA NF auto test solution">
               
             </span>
 
@@ -189,8 +189,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-03-10 19:57" pubdate>
-        March 10, 2021 pm
+      <time datetime="2021-03-30 12:40" pubdate>
+        March 30, 2021 pm
       </time>
     </span>
   
@@ -201,7 +201,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      456 字
+      599 字
     </span>
   
 
@@ -211,7 +211,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      9
+      11
        分钟
     </span>
   
@@ -241,41 +241,29 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">CMOS Logic Transconductance and Gain</h1>
+            <h1 style="display: none">LNA NF auto test solution</h1>
             
             <div class="markdown-body">
-              <div align="center"><font size="10"><b>Transconductance</b></font></div>
-
-
-
-<p><em>This note is based on CMOS technology.  All the equations are based on n-channel MOS</em>.</p>
-<h1 id="I-V-Characteristic-of-MOSFET"><a href="#I-V-Characteristic-of-MOSFET" class="headerlink" title="I-V Characteristic of MOSFET"></a>I-V Characteristic of MOSFET</h1><p>$~~$A Metal-Oxide-Semiconductor field effect transistor has 3 regions that it can works in.</p>
-<ol>
-<li><p><strong>Cut off region (Sub-threshold region):</strong> In Sub-threshold region, there are still some small currents between Drain and Source, whose saturated value has nothing to do with the Gate-Source voltage.</p>
-<p>$$I_{DS}=\frac{W}{L}I_t\exp(\frac{V_{GS}-V_{TH}}{nV_{TH}})[1-\exp(-\frac{V_{DS}}{V_{TH}})]$$ </p>
-<p><em>The $I_t$ relates to diffusion constant, concentration of electrons in P doped region, and anbient temperature.</em> </p>
-</li>
-<li><p><strong>Triode Region:</strong> In this region, $V_{DS} &lt; V_{GS}-V_{TH}$, which means that there is no pinch off in the channel of the device. The I-V equation comes as follow:</p>
-<p> $$I_{ds}=\frac{1}{2}\mu_{n}C_{ox}(\frac{W}{L})[2(V_{GS}-V_{TH})V_{DS}-V_{DS}^2]$$</p>
-</li>
-<li><p><strong>Saturation region:</strong> Due to the pinch off in the channel, the current can not increase infinitely as the Gate voltage increases. Once $V_{DS} = V_{GS}-V_{TH}$, the channel will pinch off. In another word, there will appear a small depletion region nearby the Drain.</p>
-<p> $$I_{ds}=\frac{1}{2}\mu_{n}C_{ox}(\frac{W}{L})(V_{GS}-V_{TH})^2$$</p>
-<p>$~~$Nevertheless, if we take some small size factors into account, the saturation current will change to:</p>
-<p> $$I_{ds}=\frac{1}{2}\mu_{n}C_{ox}(\frac{W}{L_{eff}})(V_{GS}-V_{TH})^2(1+\lambda V_{DS})$$</p>
-</li>
-</ol>
-<h1 id="Transconductance-of-different-types-MOS-amplifier-circuits"><a href="#Transconductance-of-different-types-MOS-amplifier-circuits" class="headerlink" title="Transconductance of different types MOS amplifier circuits"></a>Transconductance of different types MOS amplifier circuits</h1><p>$~~$In DC (Directional Current) analysis, transconductance has been defined as $g_m=\frac{\partial I_{DS}}{\partial V_{GS}}$, and in most of time, we analysis a FET in its saturation region. Thus for n-MOS, the transconductance can be derived as:</p>
-<p>$$g_m=\mu_{n}C_{ox}(\frac{W}{L})(V_{GS}-V_{TH})(1+\lambda V_{DS})$$</p>
-<p>or in form of (ignore the channel length modulation of the device):</p>
-<p>$$g_m=\mu_{n}C_{ox}(\frac{W}{L})(V_{GS}-V_{TH})=\sqrt{2\mu_{n}C_{ox}(\frac{W}{L})I_{DS}}$$</p>
-<p>$~~$When we analysis small signal model of a MOS transconductance at a certain bias $V_{GS0}$, we can finally derive the relation: $i_d=g_mv_i$. </p>
-<p>$~~$This is where the difference between  large signal gain and small signal gain comes from.</p>
-<h3 id="MOS-small-signal-models"><a href="#MOS-small-signal-models" class="headerlink" title="MOS small signal models"></a>MOS small signal models</h3><p>$~~$Different non-ideal factors such as body effect and channel length modulation make small signal models look different. In some circumstances, we do not need to consider all the non-ideal factors, and we just change the small signal to a simpler one. Here comes the models consider different factors:</p>
-<p><img src="https://tvax4.sinaimg.cn/large/0076qFCnly1gpeo0ai1ddj30ym0kk76e.jpg" srcset="/img/loading.gif" lazyload alt="Ideal model without any output resistance"></p>
-<p><img src="https://tva4.sinaimg.cn/large/0076qFCnly1gpeo5moq9ej31c40mvq6d.jpg" srcset="/img/loading.gif" lazyload alt="Small signal model considers channel length modulation"></p>
-<p><img src="https://tva4.sinaimg.cn/large/0076qFCnly1gpeo7o4kscj31ib0szn1k.jpg" srcset="/img/loading.gif" lazyload alt="Small signal model considers the output resistance ro"></p>
-<p><img src="https://tvax1.sinaimg.cn/large/0076qFCnly1gpeococbbpj31fy0nd0x0.jpg" srcset="/img/loading.gif" lazyload alt="Small signal model considers the output resistance and body effect"></p>
-<p>2021.3</p>
+              <p>Low noise amplifier is a typical electron device/circuit who usually operate at the first stage in the receiver architectures. According to the cascade noise formula, if the first stage could offer a large signal power/voltage gain, its intrinsic noise can dominate the over all noise figure of the whole receiving chain. Hence, an amplifier with low noise is quite critical to ensure the large dynamic range of a RF receiver. </p>
+<p>RF noise can arise from a variety of sources, including thermal noise, shot noise, flicker noise, and other noise sources. The thermal noise arises due to the random motion of electrons, which is directly related to the temperature of the system. Shot noise is caused by the discrete nature of current flow in a conductor, while flicker noise is a low-frequency noise caused by the random trapping and de-trapping of charges in the device’s oxide layer. All of these sources of noise can contribute to the overall RF noise in the LNA, reducing the signal-to-noise ratio and ultimately leading to a degraded performance (large NF).</p>
+<p>The Y-factor method is a widely used technique for measuring the noise figure (NF) of a device, which is a measure of the degradation of the signal-to-noise ratio caused by the device. The Y-factor method is based on the principle of measuring the power spectral density of the noise output from the Device Under Test (DUT) at two different conditions, typically the output noise power density with “hot” noise source $N^{\mathrm{ON}}$ and the output noise power density with “cold” noise source $N^{\mathrm{OFF}}$. The ratio of the two power density is the namely Y-factor, which could be written as:</p>
+<p>$$Y = \frac{N^{\mathrm{ON}}}{N^{\mathrm{OFF}}}$$</p>
+<p>In addition, the “hot” output $N^{\mathrm{ON}}$ can be expressed in two terms, which constituting the noise power of the DUT and the noise power of the noise source working in “hot” condition, namely:</p>
+<p>$$N^{\mathrm{ON}}=GKT_s^{ON}B+GKT_eB$$</p>
+<p>where the G is the intrinsic gain of the DUT, $T_s^{ON}$ the equivalent noise temperature of the “hot” state noise source, $T_e$ the equivalent noise temperature of the DUT, and <strong>B</strong> the bandwidth. In this method, we could also derive the expression of the off state output noise power as:</p>
+<p>$$N^{\mathrm{OFF}}=GKT_s^{OFF}B+GKT_eB$$</p>
+<p>Then,  the Y factor can be transformed to :</p>
+<p>$$Y=\frac{T_s^{ON}+T_e}{T_s^{OFF}+T_e}$$</p>
+<p>Moreover, the equivalent noise temperature of DUT can be derived as:</p>
+<p>$$T_e=\frac{T_s^{ON}-Y*T_s^{OFF}}{Y-1}$$</p>
+<p>then, we could have the noise figure of DUT:</p>
+<p>$$NF_{DUT}=1+\frac{T_e}{T_0}$$</p>
+<p>where $T_0$ is the room temperature. The Y-factor method is a simple and effective way of measuring the NF, but it requires accurate temperature control and calibration, as well as a stable, low-noise reference source. The Y-factor method can also be affected by non-ideal behavior of the DUT, such as nonlinearity and spurious noise. To account for these effects, additional measurements and analysis may be necessary.</p>
+<p>In this technique blog, I would like to introduce a solution set which could perform accurate NF measurement on the integrated LNA chips (DFT Chips) or a single FET. The software solution was uploaded on the <a target="_blank" rel="noopener" href="https://github.com/tickyboy/GaNology_remote">Github</a> (an auto-test solution based on python/NI Visa/PYQT5). </p>
+<p>This measurement system is based on the Focus microwave impedance tuner, R&amp;S ZNA43 vector network analyzer, R&amp;S smart noise source, R&amp;S spectrum analyzer (K30 kit: Noise Mode), .etc. </p>
+<p><img src="https://s2.loli.net/2023/03/02/7QJoYHbE2mGp1Zh.png" srcset="/img/loading.gif" lazyload alt="The measurement setup"></p>
+<p><img src="https://s2.loli.net/2023/03/02/UFgJKvtxWMOGNAo.png" srcset="/img/loading.gif" lazyload alt="In this solution, VNA and Tuner should be calibrated respectively, the software would save the calibration data and automatically recall these file when measurement is performing."></p>
+<p><img src="https://s2.loli.net/2023/03/02/dUcSxjYrPLvOwRQ.png" srcset="/img/loading.gif" lazyload alt="NF3.PNG"></p>
 
             </div>
             <hr>
@@ -287,7 +275,7 @@
                     
                       <a class="hover-with-bg" href="/categories/Courses/">Courses</a>
                     
-                      <a class="hover-with-bg" href="/categories/Courses/Analog-Integrated-Circuit/">Analog Integrated Circuit</a>
+                      <a class="hover-with-bg" href="/categories/Courses/Radio-Frequency-Integrated-Circuit/">Radio Frequency Integrated Circuit</a>
                     
                   </div>
                 
@@ -295,7 +283,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Analog/">Analog</a>
+                      <a class="hover-with-bg" href="/tags/RF-Circuit/">RF Circuit</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Noise-matching/">Noise matching</a>
                     
                   </div>
                 
@@ -312,9 +302,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/03/30/LNA-Noise-Solution/">
+                      <a href="/2021/04/04/Life-qingming/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">LNA NF auto test solution</span>
+                        <span class="hidden-mobile">Outing on Qingming Festival</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -322,8 +312,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/05/01/Digital-Integrated-Circuit-Final-Exam-Design/">
-                        <span class="hidden-mobile">Digital Integrated Circuit Final Exam Design</span>
+                      <a href="/2021/03/10/how/">
+                        <span class="hidden-mobile">CMOS Logic Transconductance and Gain</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -345,8 +335,8 @@
     
       <script type="text/javascript">
         var disqus_config = function() {
-          this.page.url = 'http://example.com/2021/03/10/how/';
-          this.page.identifier = '/2021/03/10/how/';
+          this.page.url = 'http://example.com/2021/03/30/LNA-Noise-Solution/';
+          this.page.identifier = '/2021/03/30/LNA-Noise-Solution/';
         };
         Fluid.utils.lazyComments('disqus_thread', function() {
           var d = document, s = d.createElement('script');
