@@ -18,7 +18,7 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-  <title>LNA NF auto test solution - JM Zhou&#39;s Blog</title>
+  <title>Demonstration and modeling of frequency tripler based on GaN Schottky diode pair - JM Zhou&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -174,12 +174,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/img/lab.jpg') no-repeat center center;
+         style="background: url('/img/microelectronic.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="LNA NF auto test solution">
+            <span class="h2" id="subtitle" title="Demonstration and modeling of frequency tripler based on GaN Schottky diode pair">
               
             </span>
 
@@ -189,8 +189,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-09-30 12:40" pubdate>
-        September 30, 2022 pm
+      <time datetime="2022-05-01 00:00" pubdate>
+        May 1, 2022 am
       </time>
     </span>
   
@@ -201,7 +201,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      599 字
+      12 字
     </span>
   
 
@@ -211,7 +211,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      11
+      1
        分钟
     </span>
   
@@ -241,29 +241,17 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">LNA NF auto test solution</h1>
+            <h1 style="display: none">Demonstration and modeling of frequency tripler based on GaN Schottky diode pair</h1>
             
             <div class="markdown-body">
-              <p>Low noise amplifier is a typical electron device/circuit who usually operate at the first stage in the receiver architectures. According to the cascade noise formula, if the first stage could offer a large signal power/voltage gain, its intrinsic noise can dominate the over all noise figure of the whole receiving chain. Hence, an amplifier with low noise is quite critical to ensure the large dynamic range of a RF receiver. </p>
-<p>RF noise can arise from a variety of sources, including thermal noise, shot noise, flicker noise, and other noise sources. The thermal noise arises due to the random motion of electrons, which is directly related to the temperature of the system. Shot noise is caused by the discrete nature of current flow in a conductor, while flicker noise is a low-frequency noise caused by the random trapping and de-trapping of charges in the device’s oxide layer. All of these sources of noise can contribute to the overall RF noise in the LNA, reducing the signal-to-noise ratio and ultimately leading to a degraded performance (large NF).</p>
-<p>The Y-factor method is a widely used technique for measuring the noise figure (NF) of a device, which is a measure of the degradation of the signal-to-noise ratio caused by the device. The Y-factor method is based on the principle of measuring the power spectral density of the noise output from the Device Under Test (DUT) at two different conditions, typically the output noise power density with “hot” noise source $N^{\mathrm{ON}}$ and the output noise power density with “cold” noise source $N^{\mathrm{OFF}}$. The ratio of the two power density is the namely Y-factor, which could be written as:</p>
-<p>$$Y = \frac{N^{\mathrm{ON}}}{N^{\mathrm{OFF}}}$$</p>
-<p>In addition, the “hot” output $N^{\mathrm{ON}}$ can be expressed in two terms, which constituting the noise power of the DUT and the noise power of the noise source working in “hot” condition, namely:</p>
-<p>$$N^{\mathrm{ON}}=GKT_s^{ON}B+GKT_eB$$</p>
-<p>where the G is the intrinsic gain of the DUT, $T_s^{ON}$ the equivalent noise temperature of the “hot” state noise source, $T_e$ the equivalent noise temperature of the DUT, and <strong>B</strong> the bandwidth. In this method, we could also derive the expression of the off state output noise power as:</p>
-<p>$$N^{\mathrm{OFF}}=GKT_s^{OFF}B+GKT_eB$$</p>
-<p>Then,  the Y factor can be transformed to :</p>
-<p>$$Y=\frac{T_s^{ON}+T_e}{T_s^{OFF}+T_e}$$</p>
-<p>Moreover, the equivalent noise temperature of DUT can be derived as:</p>
-<p>$$T_e=\frac{T_s^{ON}-Y*T_s^{OFF}}{Y-1}$$</p>
-<p>then, we could have the noise figure of DUT:</p>
-<p>$$NF_{DUT}=1+\frac{T_e}{T_0}$$</p>
-<p>where $T_0$ is the room temperature. The Y-factor method is a simple and effective way of measuring the NF, but it requires accurate temperature control and calibration, as well as a stable, low-noise reference source. The Y-factor method can also be affected by non-ideal behavior of the DUT, such as nonlinearity and spurious noise. To account for these effects, additional measurements and analysis may be necessary.</p>
-<p>In this technique blog, I would like to introduce a solution set which could perform accurate NF measurement on the integrated LNA chips (DFT Chips) or a single FET. The software solution was uploaded on the <a target="_blank" rel="noopener" href="https://github.com/tickyboy/GaNology_remote">Github</a> (an auto-test solution based on python/NI Visa/PYQT5). </p>
-<p>This measurement system is based on the Focus microwave impedance tuner, R&amp;S ZNA43 vector network analyzer, R&amp;S smart noise source, R&amp;S spectrum analyzer (K30 kit: Noise Mode), .etc. </p>
-<p><img src="https://s2.loli.net/2023/03/02/7QJoYHbE2mGp1Zh.png" srcset="/img/loading.gif" lazyload alt="The measurement setup"></p>
-<p><img src="https://s2.loli.net/2023/03/02/UFgJKvtxWMOGNAo.png" srcset="/img/loading.gif" lazyload alt="In this solution, VNA and Tuner should be calibrated respectively, the software would save the calibration data and automatically recall these file when measurement is performing."></p>
-<p><img src="https://s2.loli.net/2023/03/02/dUcSxjYrPLvOwRQ.png" srcset="/img/loading.gif" lazyload alt="The complete measurement setup. When measurement performed, the software would recall the tuner calibration data to tell tuner which impedance should to move. After the movement complete, input and output power loss information would be available in Spectrum analyzer using the VNA measurement data. Then NF measurement would be performed and so is the next impedance point."></p>
+              <div align="center"><font size="6"><b>Demonstration and modeling of frequency tripler based on GaN Schottky diode pair</b></font></div>
+
+<p><img src="https://s2.loli.net/2023/03/05/HaPcTNObzrIYqx4.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://s2.loli.net/2023/03/05/6LAigJZMYPFVeo9.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://s2.loli.net/2023/03/05/crbfJvR3Cjm5npK.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://s2.loli.net/2023/03/05/Ia1h2PGADYBTxpU.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://s2.loli.net/2023/03/05/zcq2AuBUyPSFmef.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://s2.loli.net/2023/03/05/BQqfycGOZMnHmYL.png" srcset="/img/loading.gif" lazyload></p>
 
             </div>
             <hr>
@@ -285,7 +273,9 @@
                     
                       <a class="hover-with-bg" href="/tags/RF-Circuit/">RF Circuit</a>
                     
-                      <a class="hover-with-bg" href="/tags/Noise-matching/">Noise matching</a>
+                      <a class="hover-with-bg" href="/tags/ADS/">ADS</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Academic-Publication/">Academic Publication</a>
                     
                   </div>
                 
@@ -302,12 +292,18 @@
                   <article class="post-prev col-6">
                     
                     
+                      <a href="/2022/09/30/LNA-Noise-Solution/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">LNA NF auto test solution</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/05/01/Microelectronics_paper/">
-                        <span class="hidden-mobile">Demonstration and modeling of frequency tripler based on GaN Schottky diode pair</span>
+                      <a href="/2022/04/16/Huawei_PA/">
+                        <span class="hidden-mobile">Huawei HIC Doherty PA Design</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -329,8 +325,8 @@
     
       <script type="text/javascript">
         var disqus_config = function() {
-          this.page.url = 'http://example.com/2022/09/30/LNA-Noise-Solution/';
-          this.page.identifier = '/2022/09/30/LNA-Noise-Solution/';
+          this.page.url = 'http://example.com/2022/05/01/Microelectronics_paper/';
+          this.page.identifier = '/2022/05/01/Microelectronics_paper/';
         };
         Fluid.utils.lazyComments('disqus_thread', function() {
           var d = document, s = d.createElement('script');
